@@ -47,11 +47,14 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-screen lg:w-2/4 mx-auto flex flex-col items-center gap-1 pb-4">
+      <main className="w-screen lg:w-2/4 mx-auto flex flex-col items-center gap-1 py-4">
         <form className="flex gap-2 justify-center">
           <label>Kapitel</label>
           <input className="w-24" type="number" ref={chapterRef} />
-          <button className="rounded-md bg-rose-800 px-4" onClick={handleClick}>
+          <button
+            className="rounded-md bg-rose-800 px-4 text-white"
+            onClick={handleClick}
+          >
             Get Manga
           </button>
         </form>
@@ -61,7 +64,7 @@ export default function Home() {
         ))}
         {chapter && (
           <button
-            className="rounded-md bg-rose-800 px-4 py-1 w-48 -mt-2"
+            className="rounded-md bg-rose-800 px-4 py-1 w-48 -mt-2 text-white"
             onClick={handleNextChapter}
           >
             Next
