@@ -57,12 +57,14 @@ export default function Home() {
         {imagesUrl.map((url, index) => (
           <img key={index} src={url} alt="" />
         ))}
-        <button
-          className="rounded-md bg-rose-800 px-4 py-1 w-48 -mt-2"
-          onClick={handleNextChapter}
-        >
-          Next
-        </button>
+        {chapter && (
+          <button
+            className="rounded-md bg-rose-800 px-4 py-1 w-48 -mt-2"
+            onClick={handleNextChapter}
+          >
+            Next
+          </button>
+        )}
       </main>
     </div>
   );
