@@ -9,6 +9,7 @@ export default function Home() {
   const handleClick = (e) => {
     e.preventDefault();
     setChapter(chapterRef.current.value);
+    localStorage.setItem("lastChapter", chapter);
   };
 
   useEffect(() => {
@@ -16,7 +17,6 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("lastChapter", chapterRef.current.value);
     getChapter();
   }, [chapter]);
 
@@ -34,6 +34,7 @@ export default function Home() {
 
   const handleNextChapter = (e) => {
     setChapter(parseInt(chapter) + 1);
+    localStorage.setItem("lastChapter", chapter);
     scroll(0, 0);
   };
 
@@ -47,28 +48,29 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-screen lg:w-2/4 mx-auto flex flex-col items-center gap-1 py-4">
-        <form className="flex gap-2 justify-center">
+      <main className="flex flex-col items-center w-screen gap-1 py-4 mx-auto lg:w-2/4">
+        <form className="flex justify-center gap-2">
           <label>Kapitel</label>
           <input className="w-24 border" type="number" ref={chapterRef} />
           <button
-            className="rounded-md bg-rose-800 px-4 text-white"
+            className="px-4 text-white rounded-md bg-rose-800"
             onClick={handleClick}
           >
             Get Manga
           </button>
         </form>
-        {chapter && <h1 className="text-3xl my-2">Kapitel {chapter}</h1>}
+        {chapter && <h1 className="my-2 text-3xl">Kapitel {chapter}</h1>}
         {imagesUrl.map((url, index) => (
           <img
             key={index}
             src={url}
+            alt=""
             onError={(event) => (event.target.style.display = "none")}
           />
         ))}
         {chapter && (
           <button
-            className="rounded-md bg-rose-800 px-4 py-1 w-48 -mt-2 text-white"
+            className="w-48 px-4 py-1 -mt-2 text-white rounded-md bg-rose-800"
             onClick={handleNextChapter}
           >
             Next
