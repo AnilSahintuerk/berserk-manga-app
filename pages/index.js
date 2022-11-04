@@ -50,7 +50,7 @@ export default function Home() {
       <main className="w-screen lg:w-2/4 mx-auto flex flex-col items-center gap-1 py-4">
         <form className="flex gap-2 justify-center">
           <label>Kapitel</label>
-          <input className="w-24" type="number" ref={chapterRef} />
+          <input className="w-24 border" type="number" ref={chapterRef} />
           <button
             className="rounded-md bg-rose-800 px-4 text-white"
             onClick={handleClick}
