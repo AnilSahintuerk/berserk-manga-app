@@ -63,8 +63,7 @@ export default function Home() {
           <img
             key={index}
             src={url}
-            alt=""
-            onerror="this.style.display='none'"
+            onError={(event) => (event.target.style.display = "none")}
           />
         ))}
         {chapter && (
