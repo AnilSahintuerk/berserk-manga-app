@@ -9,7 +9,6 @@ export default function Home() {
   const handleClick = (e) => {
     e.preventDefault();
     setChapter(chapterRef.current.value);
-    localStorage.setItem("lastChapter", chapterRef.current.value);
   };
 
   useEffect(() => {
@@ -17,6 +16,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    localStorage.setItem("lastChapter", chapterRef.current.value);
     getChapter();
   }, [chapter]);
 
@@ -30,6 +30,11 @@ export default function Home() {
       );
     }
     setImagesUrl(urls);
+  };
+
+  const handleNextChapter = (e) => {
+    setChapter(parseInt(chapter) + 1);
+    scroll(0, 0);
   };
 
   return (
@@ -52,7 +57,10 @@ export default function Home() {
         {imagesUrl.map((url, index) => (
           <img src={url} alt="" />
         ))}
-        <button className="rounded-md bg-rose-800 px-4 py-1 w-48 -mt-2">
+        <button
+          className="rounded-md bg-rose-800 px-4 py-1 w-48 -mt-2"
+          onClick={handleNextChapter}
+        >
           Next
         </button>
       </main>
