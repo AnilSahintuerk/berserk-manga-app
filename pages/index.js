@@ -60,7 +60,12 @@ export default function Home() {
         </form>
         {chapter && <h1 className="text-3xl my-2">Kapitel {chapter}</h1>}
         {imagesUrl.map((url, index) => (
-          <img key={index} src={url} alt="" />
+          <img
+            key={index}
+            src={url}
+            alt=""
+            onerror="this.style.display='none'"
+          />
         ))}
         {chapter && (
           <button
