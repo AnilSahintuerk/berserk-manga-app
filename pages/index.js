@@ -22,14 +22,16 @@ export default function Home() {
 
   const getChapter = () => {
     let urls = [];
-    for (let i = 1; i <= 25; i++) {
-      urls.push(
-        `https://cdn.berserkchapters.com/file/mangap/1/200${
-          chapter < 10 ? "0" + chapter : chapter
-        }000/${i}.jpg`
-      );
+    if (chapter) {
+      for (let i = 1; i <= 25; i++) {
+        urls.push(
+          `https://cdn.berserkchapters.com/file/mangap/1/200${
+            chapter < 10 ? `0${chapter}` : chapter
+          }000/${i}.jpg`
+        );
+      }
+      setImagesUrl(urls);
     }
-    setImagesUrl(urls);
   };
 
   const handleNextChapter = (e) => {
