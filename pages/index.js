@@ -23,14 +23,17 @@ export default function Home() {
   const getChapter = () => {
     let urls = [];
     if (chapter) {
-      for (let i = 1; i <= 25; i++) {
-        urls.push(
-          `https://cdn.berserkchapters.com/file/mangap/1/200${
+      for (let i = 1; i < 100; i++) {
+        try {
+          let link = `https://cdn.berserkchapters.com/file/mangap/1/200${
             chapter < 10 ? `0${chapter}` : chapter
-          }000/${i}.jpg`
-        );
+          }000/${i}.jpg`;
+          urls.push(link);
+          setImagesUrl(urls);
+        } catch (e) {
+          break;
+        }
       }
-      setImagesUrl(urls);
     }
   };
 
@@ -72,7 +75,7 @@ export default function Home() {
         ))}
         {chapter && (
           <button
-            className="w-48 px-4 py-1 -mt-2 text-white rounded-md bg-rose-800"
+            className="w-48 px-4 py-1 mt-1 text-white rounded-md bg-rose-800"
             onClick={handleNextChapter}
           >
             Next
