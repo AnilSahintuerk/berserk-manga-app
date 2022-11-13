@@ -23,7 +23,7 @@ export default function Home() {
   const getChapter = () => {
     let urls = [];
     if (chapter) {
-      for (let i = 0; i < 40; i++) {
+      for (let i = 1; i < 40; i++) {
         let link = `https://cdn.berserkchapters.com/file/mangap/1/200${
           chapter < 10 ? `0${chapter}` : chapter
         }000/${i}.jpg`;
@@ -66,7 +66,7 @@ export default function Home() {
             key={index}
             src={url}
             alt=""
-            onError={(event) => (event.target.style.display = "none")}
+            // onError={(event) => (event.target.style.display = "none")}
           />
         ))}
         {chapter && (

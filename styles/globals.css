@@ -28,3 +28,7 @@ a {
     background: black;
   }
 }
+
+img {
+  text-indent: -1000px;
+}
