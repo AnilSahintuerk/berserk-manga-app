@@ -66,7 +66,7 @@ export default function Home() {
             key={index}
             src={url}
             alt=""
-            // onError={(event) => (event.target.style.display = "none")}
+            onError={(event) => (event.target.style.display = "none")}
           />
         ))}
         {chapter && (
